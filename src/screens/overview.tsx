@@ -1,6 +1,13 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import {
+  KeyboardAvoidingView,
+  Platform,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 import { RootStackParamList } from '../navigation';
 import WebView from 'react-native-webview';
@@ -15,7 +22,9 @@ export default function Overview() {
   const [html, setHTML] = useState<string>('');
 
   return (
-    <View style={styles.container}>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}>
       <View style={styles.main}>
         <View style={[{ flex: 1 }]}>
           {/* <Text>{html}</Text> */}
@@ -183,7 +192,7 @@ export default function Overview() {
           </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </KeyboardAvoidingView>
   );
 }
 
@@ -213,6 +222,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 24,
+    marginBottom: 80,
   },
   main: {
     flex: 1,
