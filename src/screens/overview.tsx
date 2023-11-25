@@ -22,7 +22,7 @@ export default function Overview() {
           <FlatList
             data={messages}
             renderItem={({ index, item, separators }) => {
-              console.log(item.message);
+              // console.log(item.message);
               return (
                 <View key={index} style={{ height: 100 }}>
                   {/* <Text>
